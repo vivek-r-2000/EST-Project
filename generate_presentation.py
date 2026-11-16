@@ -855,7 +855,7 @@ def slide_12(prs):
         "Decomposing Dissimilarity: Because Squared Chord Distance is additive, we calculate each genus's exact contribution to community novelty.",
         "Deglacial Drivers (Peak SCD): Peak novelty (14.5–12.0 ka) was driven by co-occurrences of Oak (Quercus, 0.026), Spruce (Picea, 0.023), Birch (Betula, 0.022), and Alder (Alnus, 0.020).",
         "Unnatural Biome Overlap: Warm-adapted temperate hardwoods (Oak, Poplar) grew alongside cold-adapted boreal trees (Spruce, Birch, Alder) in non-modern mixes.",
-        "The Seasonal Mechanism: Extreme orbital summer-winter contrasts allowed cold-hardy and warm-adapted trees to share the same landscape until seasonality moderated."
+        "The Seasonal Mechanism: Extreme deglacial seasonality (winter -27.4°C vs. summer +5.2°C; 32.6°C contrast) let boreal conifers survive freezing winters while temperate hardwoods leveraged mild summers."
     ]
 
     add_figure_slide_layout(slide, "fig4_noanalogue_drivers.png", 1.47,
@@ -869,8 +869,9 @@ def slide_12(prs):
         "Figure 4's bottom heatmap shows which trees actually created these strange mixtures. "
         "Because our dissimilarity metric is additive, we broke it down tree by tree. "
         "Between 14,500 and 12,000 years ago, Oak reached a peak SCD contribution of 0.026, while Spruce reached 0.023, Birch reached 0.022, and Alder reached 0.020. "
-        "Why were they growing together? Back then, orbital cycles produced extreme seasonal contrast—hot summers with freezing cold winters. "
-        "That unique climate allowed cold-hardy boreal trees and warm-adapted hardwoods to share the landscape in combinations that don't exist today. Once modern seasonal balance arrived, these combinations disappeared.",
+        "Why were they growing together? TraCE-21ka shows that at 14.75 ka, winter dropped to -27.4°C while summer reached +5.2°C—an extreme seasonal swing of over 32°C driven by orbital cycles! "
+        "Cold-hardy boreal conifers endured the harsh sub-zero winters, while warmth-demanding hardwoods took advantage of mild summers. "
+        "Once regional climate warmed to +5.3°C and seasonal contrast moderated by over 10°C in the mid-Holocene, these two biomes separated into their distinct modern zones.",
         "Slide 13 transitions to Research Question 3: mapping 2D tree migration fronts across the map.",
         "Question: Why didn't climax trees like beech or hemlock drive novelty?\nAnswer: Beech and hemlock maintained low abundances during early deglaciation and only expanded during the mid-Holocene when modern communities had already formed.")
 

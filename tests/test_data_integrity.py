@@ -95,6 +95,21 @@ class TestGroundTruthOutputs(unittest.TestCase):
         r500 = df.loc[df.bin_age == 500.0].iloc[0]
         self.assertAlmostEqual(r500["frac_no_analogue"] * 100.0, 8.0, delta=0.5)
 
+    def test_climate_regional_temperature_and_precip_bounds(self):
+        p = C.PROC / "climate_regional.csv"
+        self.assertTrue(p.exists(), "climate_regional.csv missing")
+        df = pd.read_csv(p).sort_values("bin_age")
+
+        # Temperature bounds (-10.27 °C at 14.75 ka to +5.26 °C at 750 BP)
+        self.assertAlmostEqual(df.temp_c.min(), -10.27, delta=0.1)
+        self.assertAlmostEqual(df.temp_c.max(), 5.26, delta=0.1)
+        total_warming = df.temp_c.max() - df.temp_c.min()
+        self.assertAlmostEqual(total_warming, 15.53, delta=0.1)
+
+        # Precipitation bounds (2.22 to 2.49 mm/day)
+        self.assertAlmostEqual(df.precip_mm_day.min(), 2.22, delta=0.05)
+        self.assertAlmostEqual(df.precip_mm_day.max(), 2.49, delta=0.05)
+
 
 class TestPresentationArtifactIntegrity(unittest.TestCase):
     """Verify that presentation code and PPTX output reflect exact verified figures."""
@@ -102,12 +117,15 @@ class TestPresentationArtifactIntegrity(unittest.TestCase):
     def test_presentation_no_deprecated_figures(self):
         gen_script = Path("generate_presentation.py").read_text(encoding="utf-8")
         # Check that none of the outdated figures or threshold numbers appear
-        deprecated_tokens = ["0.138", "38.2%", "0.00121", "p = 0.0003", "25°–50°N", "95°–65°W"]
+        deprecated_tokens = ["0.138", "38.2%", "0.00121", "p = 0.0003", "25°–50°N", "95°–65°W", "9.6°C", "-1.1°C", "+8.5°C"]
         for token in deprecated_tokens:
             self.assertNotIn(token, gen_script, f"Deprecated token '{token}' found in generate_presentation.py")
 
-        # Verify correct study bounding box appears
+        # Verify correct study bounding box and verified temperature appear
         self.assertIn("34°–52°N, 100°–60°W", gen_script)
+        self.assertIn("-10.3°C", gen_script)
+        self.assertIn("+5.3°C", gen_script)
+        self.assertIn("+15.5°C", gen_script)
 
     def test_presentation_file_dimensions_and_slide_count(self):
         import pptx
