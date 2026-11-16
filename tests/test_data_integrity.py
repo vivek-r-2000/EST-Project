@@ -110,6 +110,55 @@ class TestGroundTruthOutputs(unittest.TestCase):
         self.assertAlmostEqual(df.precip_mm_day.min(), 2.22, delta=0.05)
         self.assertAlmostEqual(df.precip_mm_day.max(), 2.49, delta=0.05)
 
+    def test_taxonomic_scd_driver_peak_values(self):
+        p = C.OUT / "no_analogue_drivers_final_2d.csv"
+        if not p.exists():
+            p = C.OUT / "no_analogue_drivers_trsh_only.csv"
+        self.assertTrue(p.exists(), "no_analogue_drivers file missing")
+        df = pd.read_csv(p)
+        peak_deg = df[(df.bin_age >= 12000) & (df.bin_age <= 14500)]
+
+        # Peak deglacial driver contributions rounded to 3 decimal places
+        self.assertAlmostEqual(peak_deg["Quercus"].max(), 0.026, delta=0.002)
+        self.assertAlmostEqual(peak_deg["Picea"].max(), 0.023, delta=0.002)
+        self.assertAlmostEqual(peak_deg["Betula"].max(), 0.022, delta=0.002)
+        self.assertAlmostEqual(peak_deg["Alnus"].max(), 0.020, delta=0.002)
+
+    def test_lag_polarity_and_tier_statistics(self):
+        p = C.OUT / "lag_summary_final_2d.csv"
+        self.assertTrue(p.exists(), "lag_summary_final_2d.csv missing")
+        df = pd.read_csv(p).set_index("genus")
+
+        # Fast pioneer (Larix: 750 yr)
+        self.assertEqual(df.loc["Larix", "median_lag_yr"], 750.0)
+        self.assertAlmostEqual(df.loc["Larix", "pct_sig_05"], 0.80, delta=0.05)
+
+        # Canopy hardwoods (Quercus, Acer, Fraxinus: 1,500 yr)
+        for g in ["Quercus", "Acer", "Fraxinus"]:
+            self.assertEqual(df.loc[g, "median_lag_yr"], 1500.0)
+
+        # Climax seeders (Fagus, Tsuga: 2,500 yr)
+        self.assertEqual(df.loc["Fagus", "median_lag_yr"], 2500.0)
+        self.assertEqual(df.loc["Tsuga", "median_lag_yr"], 2500.0)
+
+        # Polarity: Picea retreat vs Quercus expansion
+        picea_neg = (1.0 - df.loc["Picea", "frac_pos_r"]) * 100.0
+        self.assertGreaterEqual(picea_neg, 94.0)
+        self.assertAlmostEqual(df.loc["Picea", "pct_sig_05"] * 100.0, 78.0, delta=1.0)
+
+        quercus_pos = df.loc["Quercus", "frac_pos_r"] * 100.0
+        self.assertGreaterEqual(quercus_pos, 79.0)
+
+    def test_climate_warming_rate_and_events(self):
+        p = C.OUT / "climate_rate_final_2d.csv"
+        self.assertTrue(p.exists(), "climate_rate_final_2d.csv missing")
+        df = pd.read_csv(p)
+
+        # Peak rate occurs at 14.5 ka (Bølling-Allerød pulse)
+        max_idx = df.climate_rate_c_per_century.idxmax()
+        self.assertEqual(df.loc[max_idx, "bin_age"], 14500.0)
+        self.assertAlmostEqual(df.loc[max_idx, "climate_rate_c_per_century"], 0.414, delta=0.03)
+
 
 class TestPresentationArtifactIntegrity(unittest.TestCase):
     """Verify that presentation code and PPTX output reflect exact verified figures."""
@@ -126,6 +175,15 @@ class TestPresentationArtifactIntegrity(unittest.TestCase):
         self.assertIn("-10.3°C", gen_script)
         self.assertIn("+5.3°C", gen_script)
         self.assertIn("+15.5°C", gen_script)
+
+    def test_readme_and_presentation_exact_alignment(self):
+        readme = Path("README.md").read_text(encoding="utf-8")
+        gen_script = Path("generate_presentation.py").read_text(encoding="utf-8")
+
+        # Key stats must appear identically in both
+        for stat in ["H = 30.54", "p = 0.0023", "34°–52°", "100°–60°", "15.5°C", "0.1060", "79.0%", "8.0%", "1,574 m/yr"]:
+            self.assertIn(stat, readme, f"Stat '{stat}' missing in README.md")
+            self.assertIn(stat, gen_script, f"Stat '{stat}' missing in generate_presentation.py")
 
     def test_presentation_file_dimensions_and_slide_count(self):
         import pptx

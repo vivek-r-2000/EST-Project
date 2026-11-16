@@ -73,3 +73,8 @@ Scope: Upgrade EST-Project Phase 1 with root-cause climate/TRSH fixes, stationar
   CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.discover('tests', pattern='test_*.py'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 40; print('G13_DISCOVERY_ALL_PASS')"
   EXPECT: G13_DISCOVERY_ALL_PASS
   EVIDENCE: automatic-evidence=v1; definition-sha256=f259716822de93712dba56beeb31097be67a7ef8082e3c9d5a6e2b387fe54db2; exit=0; EXPECT=matched; output-sha256=1c76f4c50cb0cf51c63ee5e84094d586082768cee35cde5f0f420e1c48f1b910; output-bytes=408; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=3e7ae680206c/36 entries
+
+- [x] G14: All measures of data (climate range, seasonal contrast, lags, SCD drivers, 2D velocity) validated via TDD
+  CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.discover('tests', pattern='test_*.py'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 48; print('G14_ALL_DATA_MEASURES_VERIFIED')"
+  EXPECT: G14_ALL_DATA_MEASURES_VERIFIED
+  EVIDENCE: automatic-evidence=v1; definition-sha256=d2f3a9497ee8cb9613829ad4fa7f7dc2c19f15805d60c2c92509fdb1038a576e; exit=0; EXPECT=matched; output-sha256=4ee6a9ed4d52e588b4db556141a89375a7b532ce5bb5ef0985a6e028bc5ce916; output-bytes=421; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=55c7a53fe4cb/36 entries
