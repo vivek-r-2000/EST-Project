@@ -404,7 +404,7 @@ def slide_01(prs):
     # 3 Summary Cards at Bottom
     cards = [
         ("RQ1: Tree Response Lags", "Tree species ran on distinct clocks, lagging behind climate by 750 to 2,500 years.", COLOR_BLUE),
-        ("RQ2: Novel Ancient Forests", "Unusual extinct tree mixtures peaked at 38.2% during rapid warming and dissolved by 500 BP.", COLOR_VERMILION),
+        ("RQ2: Novel Ancient Forests", "Unusual extinct tree mixtures peaked at 79.0% during rapid warming and dropped to 8.0% by 500 BP.", COLOR_VERMILION),
         ("RQ3: Migration Deficit", "Past trees moved at only 117–277 m/yr, falling 9.3× slower than modern warming needs.", COLOR_GREEN)
     ]
     for idx, (title, text, col) in enumerate(cards):
@@ -509,7 +509,7 @@ def slide_03(prs):
             "Measuring Novelty: Use pollen dissimilarity scores against 611 modern forests to identify unique ancient mixtures.",
             "Tracking Dissolution: Test if novel forests peaked during rapid warming and dissolved completely before modern times.",
             "Isolating Drivers: Break down total novelty scores to see which specific trees created these extinct mixtures."
-        ], COLOR_VERMILION, "38.2% Novelty Peak"),
+        ], COLOR_VERMILION, "79.0% Novelty Peak"),
         ("RQ3: 2D Migration Velocity", "Did postglacial tree migration keep pace with climate speed?", [
             "2D Arrival Maps: Fit 2D arrival surfaces on an equal-area map to track true travel directions and ground speeds.",
             "Past Speed Comparison: Compare empirical tree velocities against ancient deglacial warming speed (332 m/yr).",
@@ -628,8 +628,8 @@ def slide_05(prs):
         ("Climate Variables Tracked", [
             "Surface Temperature: Tracked in °C at each of our 69 lake locations across every 500-year time slice.",
             "Annual Rainfall: Measured precipitation (mm/day) to check moisture changes alongside temperature.",
-            "Northward Temperature Gradient: Drops by 0.00121°C per km north (~1.2°C per 1,000 km), key for calculating climate speed."
-        ], "0.00121 °C/km Northward", COLOR_VERMILION),
+            "Northward Temperature Gradient: Drops by 0.0121°C per km north (~1.2°C per 100 km), key for calculating climate speed."
+        ], "0.0121 °C/km Northward", COLOR_VERMILION),
         ("Major Ancient Climate Pulses", [
             "Bølling-Allerød Warm Pulse (14.7–12.9 ka BP): Rapid warming surge that kicked off major ice sheet retreat.",
             "Younger Dryas Cold Snap (12.9–11.7 ka BP): Abrupt temporary cooling that froze back early deglacial warmth.",
@@ -647,7 +647,7 @@ def slide_05(prs):
         "Slide 5 outlines our climate dataset. A common flaw in older papers is circular logic: using fossil pollen to reconstruct temperature, and then using that temperature to explain pollen changes. "
         "To avoid that trap, we pulled temperature and rainfall from TraCE-21ka, an independent climate simulation run on NCAR supercomputers. "
         "TraCE models orbital cycles, greenhouse gases, and ice-sheet melting purely from physics principles. "
-        "Importantly, TraCE gives us our regional temperature gradient—0.00121 degrees Celsius per kilometer—which is the number we need to calculate how fast climate zones moved.",
+        "Importantly, TraCE gives us our regional temperature gradient—0.0121 degrees Celsius per kilometer (~1.2°C per 100 km)—which is the number we need to calculate how fast climate zones moved.",
         "Slide 6 covers the biological and dating corrections we applied to raw pollen counts.",
         "Question: Does TraCE capture regional topography?\nAnswer: Yes, TraCE incorporates changing Laurentide ice sheet elevation and coastal boundaries at decadal resolution throughout the 22,000-year run.")
 
@@ -765,7 +765,7 @@ def slide_09(prs):
                      "Forests do not move as a single synchronized unit; tree genera lag by 750 to 2,500 years across three speed tiers.")
 
     bullets = [
-        "Statistically Significant (p = 0.0003): Kruskal-Wallis testing proves that tree genera do not share the same response speed.",
+        "Statistically Significant (H = 30.54, p = 0.0023): Kruskal-Wallis testing proves that tree genera do not share the same response speed.",
         "Fast Pioneers (<1,000 yr): Tamarack (Larix) reacted first, with a median lag of 750 years [0–2,500 yr CI].",
         "Canopy Hardwoods (1,000–2,000 yr): Major trees—Oak, Birch, Ash, Elm, and Maple—clustered around a 1,500-year delay.",
         "Heavy Climax Seeders (>2,000 yr): Beech and Hemlock took the longest, lagging temperature by 2,500 years [2,000–3,000 yr CI]."
@@ -773,7 +773,7 @@ def slide_09(prs):
 
     add_figure_slide_layout(slide, "fig3_genus_lags_raincloud.png", 1.82,
                             "Three Distinct Ecological Speed Tiers", bullets,
-                            "750 to 2,500 yr Lags", "Kruskal-Wallis p = 0.0003",
+                            "750 to 2,500 yr Lags", "Kruskal-Wallis p = 0.0023",
                             "Ecological Speed Hierarchy",
                             "Trees split into three distinct speed groups: light-seeded pioneers reacted in 750 years, canopy hardwoods took 1,500 years, and heavy-seeded climax trees took 2,500 years.",
                             COLOR_BLUE)
@@ -781,7 +781,7 @@ def slide_09(prs):
     set_clean_notes(slide, 9, "RQ1 Response Lags", "1 min 15s", "11:00",
         "Here in Figure 3 Panel A, we answer Research Question 1. "
         "Each row is a different tree genus, the dots mark median lag in years, and the horizontal bars show 95% confidence intervals. "
-        "The Kruskal-Wallis test gives p = 0.0003, confirming that different trees move on completely different timelines. "
+        "The Kruskal-Wallis test gives H = 30.54 and p = 0.0023, confirming that different trees move on completely different timelines. "
         "We see three clear groups: fast pioneers like Tamarack take about 750 years; canopy hardwoods like Oak, Maple, and Ash cluster at 1,500 years; and slow climax trees like Beech and Hemlock take 2,500 years. "
         "This shows that biomes don't migrate as a single synchronized block—each tree genus follows its own speed clock.",
         "Slide 10 examines whether these lags represented population expansion or collapse.",
@@ -819,60 +819,60 @@ def slide_10(prs):
 
 def slide_11(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
-    add_slide_header(slide, "3. Results: RQ2 (No-Analogue Forests)", "RQ2: Novel Communities Peaked at 38% and Vanished by 500 BP",
-                     "Extinct mixtures of trees peaked during the fastest deglacial warming and disappeared before colonial disturbance.")
+    add_slide_header(slide, "3. Results: RQ2 (No-Analogue Forests)", "RQ2: Novel Communities Peaked at 79% and Dropped to 8% by 500 BP",
+                     "Extinct mixtures of trees peaked during the fastest deglacial warming and collapsed to near-modern levels before colonial disturbance.")
 
     bullets = [
-        "Identifying Novel Forests: Any fossil pollen sample with a dissimilarity score above 0.138 SCD compared to 611 modern forests is classified as novel.",
-        "Peak During Rapid Warming (38.2%): Novel communities peaked at 14,500 BP right during the Bølling-Allerød warming pulse.",
-        "Complete Disappearance by 500 BP (0.0%): Once we filtered out modern agricultural weeds, ancient novel forests dropped to exactly 0.0% by 500 BP.",
-        "Direct Link to Turnover: Novel forest prevalence strongly correlated with vegetation turnover (Spearman rho = 0.743, p = 0.021)."
+        "Identifying Novel Forests: Any fossil pollen sample with a dissimilarity score above 0.1060 SCD (5th percentile of 611 modern surface forests) is classified as novel.",
+        "Peak During Rapid Warming (79.0%): Novel communities peaked at 14,500 BP right during the rapid Bølling-Allerød warming surge.",
+        "Sharp Decline by 500 BP (8.0%): Once post-settlement agricultural weeds are removed, ancient novel forest mixtures dropped down to just 8.0% by 500 BP.",
+        "Direct Link to Turnover: Novel forest prevalence strongly correlated with vegetation turnover (Spearman rho = 0.814, Ebisuzaki p = 0.033; thermal rate rho = 0.607, p = 0.099)."
     ]
 
     add_figure_slide_layout(slide, "fig4_noanalogue_drivers.png", 1.47,
                             "Deglacial Novelty Trajectory & Correlation", bullets,
-                            "38.2% Peak Novelty", "0.0% Pre-Colonial Baseline",
+                            "79.0% Peak Novelty", "8.0% Pre-Colonial Floor",
                             "Transient Novelty",
-                            "Novel forest communities peaked during rapid deglacial warming and dissolved completely to 0.0% by 500 BP once modern climate seasonality stabilized.",
+                            "Novel forest communities peaked during rapid deglacial warming (79.0% at 14.5 ka) and declined to 8.0% by 500 BP once modern climate seasonality stabilized.",
                             COLOR_VERMILION)
 
     set_clean_notes(slide, 11, "RQ2 No-Analogue Dynamics", "1 min 15s", "13:30",
         "Slide 11 addresses Research Question 2: Why did ancient forests have tree combinations that don't exist today? "
         "We measured novelty using Squared Chord Distance against 611 modern lakes. "
-        "The top graph shows that novel communities peaked at 38.2% around 14,500 years ago—right when warming was fastest during the Bølling-Allerød. "
-        "But look at where it ends: by 500 years ago, novelty dropped all the way to zero. "
+        "The top graph shows that novel communities peaked at 79.0% around 14,500 years ago—right when warming was fastest during the Bølling-Allerød. "
+        "But look at where it ends: by 500 years ago, novelty dropped all the way down to 8.0%. "
         "Older papers that thought novel forests persisted into the late Holocene were fooled by post-settlement farm weeds. In natural pre-colonial forests, novelty was a temporary phase.",
         "Slide 12 breaks down the specific tree species that generated this novelty.",
-        "Question: What is Squared Chord Distance?\nAnswer: SCD is a non-linear metric of ecological dissimilarity; values above 0.138 indicate community compositions with no modern analogue in the reference database.")
+        "Question: What is Squared Chord Distance?\nAnswer: SCD is a non-linear metric of ecological dissimilarity; values above 0.1060 indicate community compositions with no modern analogue in the reference database.")
 
 
 def slide_12(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     add_slide_header(slide, "3. Results: RQ2 (No-Analogue Forests)", "RQ2: What Made These Ancient Forests So Strange?",
-                     "Breaking down dissimilarity scores shows that Spruce and Black Ash drove these extinct tree mixtures.")
+                     "Breaking down dissimilarity scores reveals which tree genera drove these extinct ecological combinations.")
 
     bullets = [
-        "Decomposing Novelty Scores: Because Squared Chord Distance is additive, we can calculate how much each tree genus contributed to the strange mix.",
-        "Spruce Was the #1 Driver (0.161 SCD): Boreal Spruce contributed nearly half (48%) of all community novelty during early deglaciation.",
-        "Black Ash Was #2 (0.057 SCD): Temperate wetland Black Ash contributed 17% of the novelty, co-occurring unnaturally with spruce.",
-        "The Seasonal Mechanism: High orbital seasonality created hot summers and freezing winters, allowing cold-loving spruce and wetland ash to grow side-by-side."
+        "Decomposing Dissimilarity: Because Squared Chord Distance is additive, we calculate each genus's exact contribution to community novelty.",
+        "Deglacial Drivers (Peak SCD): Peak novelty (14.5–12.0 ka) was driven by co-occurrences of Oak (Quercus, 0.026), Spruce (Picea, 0.023), Birch (Betula, 0.022), and Alder (Alnus, 0.020).",
+        "Unnatural Biome Overlap: Warm-adapted temperate hardwoods (Oak, Poplar) grew alongside cold-adapted boreal trees (Spruce, Birch, Alder) in non-modern mixes.",
+        "The Seasonal Mechanism: Extreme orbital summer-winter contrasts allowed cold-hardy and warm-adapted trees to share the same landscape until seasonality moderated."
     ]
 
     add_figure_slide_layout(slide, "fig4_noanalogue_drivers.png", 1.47,
                             "Taxonomic Dissimilarity Attribution", bullets,
-                            "Picea SCD: 0.161", "Fraxinus SCD: 0.057",
+                            "Quercus SCD: 0.026", "Picea SCD: 0.023",
                             "Taxonomic Drivers",
-                            "Novel forests were created by unusual co-occurrences of boreal spruce and temperate black ash under high seasonal temperature contrast.",
+                            "Novel forests were created by unnatural mixtures of warm temperate hardwoods (Oak, Poplar) and cold boreal trees (Spruce, Birch, Alder) under high deglacial seasonality.",
                             COLOR_BLUE)
 
     set_clean_notes(slide, 12, "RQ2 Taxonomic Drivers", "1 min 15s", "14:45",
         "Figure 4's bottom heatmap shows which trees actually created these strange mixtures. "
         "Because our dissimilarity metric is additive, we broke it down tree by tree. "
-        "The darkest row right at the top is Spruce: it contributed almost half of all novelty with an average score of 0.161. Second was Black Ash at 0.057. "
-        "Why were they growing together? Back then, orbital cycles produced huge seasonal contrast—hot summers with freezing cold winters. "
-        "That strange climate allowed cold-hardy spruce and wetland ash to grow side by side in ways they never do today. Once seasonality moderated, the mix disappeared.",
+        "Between 14,500 and 12,000 years ago, Oak reached a peak SCD contribution of 0.026, while Spruce reached 0.023, Birch reached 0.022, and Alder reached 0.020. "
+        "Why were they growing together? Back then, orbital cycles produced extreme seasonal contrast—hot summers with freezing cold winters. "
+        "That unique climate allowed cold-hardy boreal trees and warm-adapted hardwoods to share the landscape in combinations that don't exist today. Once modern seasonal balance arrived, these combinations disappeared.",
         "Slide 13 transitions to Research Question 3: mapping 2D tree migration fronts across the map.",
-        "Question: Why didn't oak or pine drive novelty?\nAnswer: Oak and pine maintained abundances that closely resembled modern southeastern pine-oak woodlands, contributing minimal dissimilarity.")
+        "Question: Why didn't climax trees like beech or hemlock drive novelty?\nAnswer: Beech and hemlock maintained low abundances during early deglaciation and only expanded during the mid-Holocene when modern communities had already formed.")
 
 
 def slide_13(prs):
@@ -983,9 +983,9 @@ def slide_16(prs):
         ], "Same Tree Order Verified", COLOR_VERMILION),
         ("Surrogate Test Pass Rates", [
             "Synthetic Climate Controls: Tested our findings against 1,000 synthetic climate runs to weed out random chance.",
-            "Strong Pass Rates: 78.4% of Spruce retreat pairs and 67.2% of Oak expansion pairs passed the strict 95% threshold.",
+            "Strong Pass Rates: 78.0% of Spruce retreat pairs (46/59 sites) and 68.8% of Ash pairs (22/32 sites) passed the strict 95% surrogate threshold (Oak: 41.8%).",
             "Takeaway: Tree-climate correlations represent real physical reactions, not random mathematical noise."
-        ], "78% Spruce / 67% Oak Passed", COLOR_GREEN)
+        ], "78% Spruce / 69% Ash Passed", COLOR_GREEN)
     ]
 
     for idx, (title, bullets, chip, col) in enumerate(cards):
@@ -998,7 +998,7 @@ def slide_16(prs):
         "On slide 16, we stress-tested our models to make sure our findings weren't just artifacts of our code or settings. We tested three things: "
         "First, we re-ran the analysis 50 times with random draws from the radiocarbon age models; the median lag stayed locked at 1,500 years every time. "
         "Second, we doubled the time resolution to 250-year bins across over 3,300 levels, and the exact same tree hierarchy held up. "
-        "Third, our surrogate climate tests showed that roughly three-quarters of the spruce and oak signals passed strict significance tests. "
+        "Third, our surrogate climate tests showed that 78% of Spruce retreat records and 69% of Ash records passed strict significance tests. "
         "This gives us high confidence that the patterns are biologically real.",
         "Slide 17 explores the biological reasons behind these 1,500-year delays.",
         "Question: Did downweighting Pinus alter the lag hierarchy?\nAnswer: No, downweighting Pinus reduced overproduction distortion but preserved the identical pioneer-to-climax lag ordering.")
@@ -1132,9 +1132,9 @@ def slide_20(prs):
             "Opposite Reactions: Warming triggered major dieback in cold-loving Spruce (95% retreat) alongside rapid Oak expansion (79% positive)."
         ], COLOR_BLUE, "Non-Unified Biomes"),
         ("2. Novel Forests Were a Temporary Phase (RQ2)", [
-            "Peak at 38%: Extinct no-analogue tree mixtures peaked at 38.2% during rapid deglacial warming (14,500 BP).",
-            "Spruce & Ash Driven: Driven mainly by abnormal co-occurrences of boreal Spruce (0.161 SCD) and wetland Black Ash (0.057 SCD).",
-            "Disappeared Completely: Novel forest prevalence dropped to exactly 0.0% by 500 BP once modern climate seasonality stabilized."
+            "Peak at 79%: Extinct no-analogue tree mixtures peaked at 79.0% during rapid deglacial warming (14,500 BP).",
+            "Boreal-Hardwood Recombination: Driven by abnormal co-occurrences of Oak, Birch, Alder, Poplar, and Spruce under extreme seasonality.",
+            "Pre-Colonial Baseline: Novel forest prevalence declined to just 8.0% by 500 BP once modern climate seasonality stabilized."
         ], COLOR_VERMILION, "Temporary Disequilibrium"),
         ("3. The 9.3x Modern Velocity Tracking Deficit (RQ3)", [
             "Hard Speed Limit: Real 2D tree population speeds hit an empirical ceiling between 117 and 277 m/yr (Hickory max 296 m/yr).",
@@ -1204,7 +1204,7 @@ def slide_20(prs):
     set_clean_notes(slide, 20, "Conclusions", "1 min 00s", "24:00",
         "To wrap up our presentation, here are our three core conclusions: "
         "First, trees don't migrate as neat, synchronized biomes—different species move on individual clocks ranging from 750 to 2,500 years. "
-        "Second, novel extinct forest mixtures peaked at 38% during rapid warming and disappeared completely under stable pre-colonial conditions. "
+        "Second, novel extinct forest mixtures peaked at 79% during rapid warming and fell to 8% under stable pre-colonial conditions. "
         "Third, past tree migration hit a hard ceiling below 300 meters per year, leaving a 9.3-fold speed deficit compared to modern warming. "
         "Natural seed dispersal won't keep pace on its own—we need active assisted migration to safeguard our forests. "
         "Thank you for your time, and we'd be glad to take any questions!",
@@ -1264,10 +1264,10 @@ def slide_22(prs):
         ["Age Uncertainty", "N = 50 Monte Carlo draws", "Resampled depth-age bounds; cross-genus median lag locked at 1,500 yr"],
         ["Pollen Productivity", "REVEALS RPP Multipliers", "Wieczorek & Herzschuh (2020) & Dawson et al. (2016)"],
         ["Taxon Filter", "Arboreal Only (TRSH-only)", "Focuses on trees & shrubs; filters post-settlement farm weeds"],
-        ["No-Analogue Cutoff", "Squared Chord Distance (SCD)", "Cutoff = 0.138 (5th percentile of 611 modern surface lakes)"],
+        ["No-Analogue Cutoff", "Squared Chord Distance (SCD)", "Cutoff = 0.1060 (5th percentile of 611 modern surface lakes)"],
         ["Stationary Differencing", "First-differencing (Δy vs ΔT)", "Removes 15,000-year trends; tested against 1,000 Ebisuzaki surrogates"],
         ["2D Arrival Surface", "Age(x, y) = b0 + bx*x + by*y", "Albers Equal-Area (EPSG:5070); gated by planar F-test (p <= 0.05)"],
-        ["Modern Climate Velocity", "1,574 m/yr (1,242–2,071 range)", "1.9°C/century warming divided by 0.00121°C/km regional spatial gradient"]
+        ["Modern Climate Velocity", "1,574 m/yr (1,242–2,071 range)", "1.9°C/century warming divided by 0.0121°C/km regional spatial gradient"]
     ]
 
     col_w = [Inches(2.5), Inches(3.2), Inches(6.033)]
@@ -1280,9 +1280,9 @@ def slide_22(prs):
         "If the committee asks for exact calibration numbers, thresholds, or citations, this table has all the key values: "
         "1. RPP multipliers: Wieczorek & Herzschuh (2020). "
         "2. Chronologies: Li et al. (2022) LegacyAge 1.0. "
-        "3. No-analogue cutoff: 0.138 Squared Chord Distance based on the 5th percentile of 611 modern surface lakes. "
+        "3. No-analogue cutoff: 0.1060 Squared Chord Distance based on the 5th percentile of 611 modern surface lakes. "
         "4. Surrogate testing: 1,000 Ebisuzaki phase-randomized surrogate series. "
-        "5. Modern climate velocity: 1.9°C/century divided by 0.00121°C/km, yielding 1,574 m/yr.",
+        "5. Modern climate velocity: 1.9°C/century divided by 0.0121°C/km, yielding 1,574 m/yr.",
         "Transition back to Q&A.")
 
 
