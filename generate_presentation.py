@@ -461,7 +461,7 @@ def slide_02(prs):
 
     cards = [
         ("A 15,000-Year Natural Run", [
-            "Big Warming Shift (+9.6°C): As ice sheets melted, regional temperatures rose by nearly 10°C, forcing trees to migrate north.",
+            "Major Warming Shift (+15.5°C): As ice sheets retreated, regional average temperature rose from -10.3°C up to +5.3°C, forcing trees to migrate north.",
             "Long Lifespans Mean Slow Changes: Trees take decades to mature, so whole forests take hundreds of years to reorganize.",
             "Real-World Baseline: This provides the only empirical record of how fast tree species can naturally move under warming."
         ], "15,000-Yr Natural Run", COLOR_BLUE),
@@ -485,7 +485,7 @@ def slide_02(prs):
 
     set_clean_notes(slide, 2, "Ecological Context", "1 min 15s", "02:15",
         "To start off, why look back 15,000 years? We can't put a mature forest in a lab to see how it reacts to warming over centuries. "
-        "But when the last ice age ended, nature ran that exact experiment. As ice sheets melted across North America, temperatures warmed by about 9.6 degrees Celsius. "
+        "But when the last ice age ended, nature ran that exact experiment. As ice sheets melted across North America, regional average temperature warmed by over 15 degrees Celsius (from -10.3°C to +5.3°C). "
         "Because trees live for decades, they couldn't adjust overnight—it took centuries for seeds to disperse and forests to regrow. "
         "Earlier studies often assumed all trees moved north together in lockstep, and used simple 1D models that forced trees straight north. "
         "Today, human-driven warming is shifting climate zones far faster than ancient warming did. "
@@ -736,27 +736,27 @@ def slide_08(prs):
                      "Tracking temperature, rainfall, warming rates, and forest turnover across abrupt climate events.")
 
     bullets = [
-        "Big Warming Jump (+9.6°C): Regional average temperature rose from -1.1°C at 15,000 BP up to +8.5°C during the warm mid-Holocene.",
-        "Rising Rainfall (+1.2 mm/day): Moisture increased by 60% from dry ice age conditions (2.0 mm/day) to wet Holocene conditions (3.2 mm/day).",
+        "Major Warming Shift (+15.5°C): Regional annual temperature rose from -10.3°C at 14,750 BP up to +5.3°C during the late Holocene.",
+        "Rising Moisture (+11%): Regional precipitation increased from 2.24 mm/day (~816 mm/yr) during dry deglaciation to 2.48 mm/day (~905 mm/yr) in the Holocene.",
         "Fastest Warming Surge (+0.43°C/century): The most rapid warming burst hit at 14,500 BP during the Bølling-Allerød warm pulse.",
         "Forest Turnover Matched Warming: Community turnover peaked alongside fastest warming, showing that rapid temperature shifts accelerated forest reorganization."
     ]
 
     add_figure_slide_layout(slide, "fig2_climate_and_turnover.png", 1.38,
                             "Abrupt Climate Shifts & Forest Turnover", bullets,
-                            "+9.6 °C Total Warming", "Peak Rate: 0.43 °C/century",
+                            "+15.5 °C Total Warming", "Peak Rate: 0.43 °C/century",
                             "Turnover Matched Warming",
                             "Forest communities reorganized fastest during periods of rapid warming, demonstrating that ancient climate transitions strongly accelerated community turnover.",
                             COLOR_VERMILION)
 
     set_clean_notes(slide, 8, "Climate & Turnover", "1 min 15s", "09:45",
         "Figure 2 shows 15,000 years of climate and forest history side by side. "
-        "Up top, we track temperature in orange and rainfall in blue: the region warmed by almost 10°C, and rainfall rose by about 60%. "
+        "Up top, we track regional temperature in orange and precipitation in blue: regional annual mean temperature warmed by 15.5°C (from -10.3°C to +5.3°C), and precipitation rose by about 11% (from 2.24 to 2.48 mm/day). "
         "The yellow and blue shaded bands highlight rapid climate jumps—the warm Bølling-Allerød and the Younger Dryas cold snap. "
         "Look at the bottom two panels: the third panel shows how fast climate warmed (peaking at 0.43°C per century), and the bottom panel shows vegetation turnover. They peak together! "
         "When warming accelerated, forest communities scrambled and reorganized the most.",
         "We now address Research Question 1 on slide 9: How long did trees lag behind these temperature shifts?",
-        "Question: Why does turnover drop during the Holocene?\nAnswer: Mid-Holocene climate stabilized, allowing tree populations to establish quasi-equilibrium communities with lower species turnover.")
+        "Question: Why is the deglacial annual temperature so low (-10.3°C)?\nAnswer: Eastern North America between 34°N and 52°N was partially covered by the Laurentide Ice Sheet, producing intense polar winters (-27.4°C DJF) despite mild deglacial summers (5.2°C JJA).")
 
 
 def slide_09(prs):
