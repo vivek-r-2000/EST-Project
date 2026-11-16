@@ -1,8 +1,8 @@
 # Gates: EST-Project Phase 1 Upgrade
 
-OWNS: config.py, lib.py, stage_log.py, 01b_fetch_legacyage.py, 02_preprocess.py, 03a_climate_trace.py, 03_metrics.py, 04_migration_rates.py, 05_visualizations_modern.py, 06_build_report.py, synthetic_demo.py, data/outputs/**, TBD2_MidProject_Baseline_Report.html, TBD2_Final_Report.html, TBD2_Final_Project_Report.docx
+OWNS: config.py, lib.py, stage_log.py, 01b_fetch_legacyage.py, 02_preprocess.py, 03a_climate_trace.py, 03_metrics.py, 04_migration_rates.py, 05_visualizations_modern.py, 06_build_report.py, synthetic_demo.py, data/outputs/**, TBD2_MidProject_Baseline_Report.html, TBD2_Final_Report.html, TBD2_Final_Project_Report.docx, tests/**
 
-Scope: Upgrade EST-Project Phase 1 with root-cause climate/TRSH fixes, stationary Ebisuzaki lags, RPP calibration, LegacyAge 1.0 chronologies, 2D arrival isochrones, full stage logs, and Mid-vs-Final interactive HTML and DOCX reports.
+Scope: Upgrade EST-Project Phase 1 with root-cause climate/TRSH fixes, stationary Ebisuzaki lags, RPP calibration, LegacyAge 1.0 chronologies, 2D arrival isochrones, full stage logs, and comprehensive TDD test suite verifying all analytical methods and data integrity.
 
 - [x] G0: ledger states outcomes that can fail
   CHECK: node C:/Users/vivek/.gemini/config/skills/unlazy/scripts/gate-lint.mjs GATES.md
@@ -43,3 +43,33 @@ Scope: Upgrade EST-Project Phase 1 with root-cause climate/TRSH fixes, stationar
   CHECK: python 06_build_report.py --verify-only
   EXPECT: G7_REPORTS_VERIFIED_OK
   EVIDENCE: automatic-evidence=v1; definition-sha256=618778cc8ecc39248b1b1ee5e3563315f08259e50d9897e48dc6d3b715f92616; exit=0; EXPECT=matched; output-sha256=dd5e789b894be2d7b46549498c5a52d3a74e6988efa1976f2803c8172905e781; output-bytes=377; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=d6f435cc73e6/35 entries
+
+- [x] G8: Core mathematical primitives and distance metrics unit tests pass
+  CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.loadTestsFromName('tests.test_lib'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 15; print('G8_LIB_TESTS_PASS')"
+  EXPECT: G8_LIB_TESTS_PASS
+  EVIDENCE: automatic-evidence=v1; definition-sha256=a47c4cd6cdbde218f353427c327870f5755ecb06f2453a5ef5c01ef6531d843a; exit=0; EXPECT=matched; output-sha256=e3309b7c4e07d6dcc3180d13563454d05a254549d7e451482507ebd4194b6e55; output-bytes=143; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=3e7ae680206c/36 entries
+
+- [x] G9: Preprocessing, filtering, and RPP standardization unit tests pass
+  CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.loadTestsFromName('tests.test_preprocess'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 5; print('G9_PREPROCESS_TESTS_PASS')"
+  EXPECT: G9_PREPROCESS_TESTS_PASS
+  EVIDENCE: automatic-evidence=v1; definition-sha256=066daec47855ee25b4be3d51583547a9d3c2b1c740f06ab78eacc0d0ee663f06; exit=0; EXPECT=matched; output-sha256=e8f6250ecb03684ccbedbd909b764a2e79d99ebabd8aef01c21d9b1ae0c2cae8; output-bytes=371; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=3e7ae680206c/36 entries
+
+- [x] G10: RQ1 lags, stationary differencing, and RQ2 no-analogue SCD unit tests pass
+  CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.loadTestsFromName('tests.test_metrics'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 5; print('G10_METRICS_TESTS_PASS')"
+  EXPECT: G10_METRICS_TESTS_PASS
+  EVIDENCE: automatic-evidence=v1; definition-sha256=b9d5acca79581c64f8bf5b8789c4d57412e499b756d8166803fb8cc4ddd843fd; exit=0; EXPECT=matched; output-sha256=d3b1c826a1c039e5d228c636190bbf95635c34c7348eb3d1b2b3a71a7bd95d0b; output-bytes=133; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=3e7ae680206c/36 entries
+
+- [x] G11: RQ3 1D and 2D spatial migration velocity and planar F-test unit tests pass
+  CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.loadTestsFromName('tests.test_migration'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 5; print('G11_MIGRATION_TESTS_PASS')"
+  EXPECT: G11_MIGRATION_TESTS_PASS
+  EVIDENCE: automatic-evidence=v1; definition-sha256=1906763eab7b8d6d2d1c4ffae2e9787042a83fce924f418c069c9eee5e6f546f; exit=0; EXPECT=matched; output-sha256=3da4c801548c29e4f429c9864f9be31a1501f9b3d896ab8140f296ebed65b72f; output-bytes=138; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=3e7ae680206c/36 entries
+
+- [x] G12: Data outputs integrity and cross-artifact consistency integration tests pass
+  CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.loadTestsFromName('tests.test_data_integrity'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 5; print('G12_INTEGRITY_TESTS_PASS')"
+  EXPECT: G12_INTEGRITY_TESTS_PASS
+  EVIDENCE: automatic-evidence=v1; definition-sha256=0615f82ec60557abd7791754ede1855d7af66235fa19062be349d253824a5b28; exit=0; EXPECT=matched; output-sha256=385f98a60718bf7a9f407a21c4a2f4fbf188e1a0abc5bec3f817746a40fd3b94; output-bytes=136; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=3e7ae680206c/36 entries
+
+- [x] G13: Complete test discovery run executes all 44 test methods cleanly with zero failures
+  CHECK: python -c "import unittest; suite = unittest.defaultTestLoader.discover('tests', pattern='test_*.py'); res = unittest.TextTestRunner().run(suite); assert res.wasSuccessful() and res.testsRun >= 40; print('G13_DISCOVERY_ALL_PASS')"
+  EXPECT: G13_DISCOVERY_ALL_PASS
+  EVIDENCE: automatic-evidence=v1; definition-sha256=f259716822de93712dba56beeb31097be67a7ef8082e3c9d5a6e2b387fe54db2; exit=0; EXPECT=matched; output-sha256=1c76f4c50cb0cf51c63ee5e84094d586082768cee35cde5f0f420e1c48f1b910; output-bytes=408; shell=C:\WINDOWS\system32\cmd.exe; cwd=C:\Users\vivek\EST\EST-Project; path=3e7ae680206c/36 entries
