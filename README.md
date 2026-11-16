@@ -16,7 +16,7 @@ An end-to-end, publication-grade paleoecological research pipeline investigating
 ---
 
 ### Methodological Framework
-* **Fossil Pollen & Core Harmonization:** 69 continuous sediment cores (1,706 500-yr bins) across eastern North America (25°–50° N, 95°–65° W), calibrated using empirical REVEALS Relative Pollen Productivity (RPP; Wieczorek & Herzschuh 2020) and Bayesian chronologies from LegacyAge 1.0 (Li et al. 2022) with 50-member Monte Carlo depth-age ensembles.
+* **Fossil Pollen & Core Harmonization:** 69 continuous sediment cores (1,706 500-yr bins) across eastern North America (34°–52° N, 100°–60° W), calibrated using empirical REVEALS Relative Pollen Productivity (RPP; Wieczorek & Herzschuh 2020) and Bayesian chronologies from LegacyAge 1.0 (Li et al. 2022) with 50-member Monte Carlo depth-age ensembles.
 * **Independent Paleoclimate:** TraCE-21ka decadal transient simulations (°C surface temperature and mm/day precipitation; NCAR GDEX d651050).
 * **Stationary Lag Testing:** First-differenced detrended cross-correlation tested against 1,000 Ebisuzaki phase-randomized surrogate time series.
 * **2D Planar Spatial Migration:** Equal-area Albers projected coordinates calculating directional arrival velocity ($1 / |\nabla \text{Age}|$) and dispersal azimuths clipped to observed convex hulls.

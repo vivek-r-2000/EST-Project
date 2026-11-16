@@ -451,7 +451,7 @@ def slide_01(prs):
         "we answer three main questions: how many centuries different tree species lagged behind warming, why extinct novel forest types appeared, "
         "and how fast tree populations physically moved across the map compared to modern climate change.",
         "We start with why studying ancient forests matters on slide 2.",
-        "Question: What is the geographic boundary of the study?\nAnswer: 25°N to 50°N and 95°W to 65°W, spanning eastern North America from Florida up to southern Ontario.")
+        "Question: What is the geographic boundary of the study?\nAnswer: 34°N to 52°N and 100°W to 60°W, spanning eastern North America from the southern Appalachians up to southern Canada.")
 
 
 def slide_02(prs):
@@ -592,7 +592,7 @@ def slide_04(prs):
                      "Pulling 15,000 years of fossil pollen records from lake mud stored in the Neotoma Database.")
 
     bullets = [
-        "Study Region (25°–50°N, 95°–65°W): Spans eastern North America from Florida up to southern Canada.",
+        "Study Region (34°–52°N, 100°–60°W): Spans eastern North America from the southern Appalachians up to southern Canada.",
         "Quality Filtering: Kept 69 lakes with clean, continuous mud layers and at least 150 identified pollen grains per sample.",
         "Consistent Time Slices: Standardized into 1,706 500-year slices running from 14,750 down to 250 years ago.",
         "Modern Baseline Network: 611 modern surface lake samples provide the comparison baseline for our novelty tests."
@@ -1258,7 +1258,7 @@ def slide_22(prs):
 
     headers = ["Analytical Setting", "Value Used in Study", "Why It Was Chosen & Reference"]
     rows = [
-        ["Study Corridor", "25°–50°N, 95°–65°W", "Eastern North American temperate-boreal transition zone"],
+        ["Study Corridor", "34°–52°N, 100°–60°W", "Eastern North American temperate-boreal transition zone"],
         ["Sediment Cores", "69 continuous lakes (1,706 bins)", "Min 150 grains/sample, min 4 continuous 500-yr bins"],
         ["Age Chronologies", "LegacyAge 1.0 (Li et al. 2022)", "Calibrated Bayesian radiocarbon chronologies (PANGAEA Table-S5)"],
         ["Age Uncertainty", "N = 50 Monte Carlo draws", "Resampled depth-age bounds; cross-genus median lag locked at 1,500 yr"],
@@ -1322,10 +1322,10 @@ def main():
         prs.save(str(PPTX_OUT))
         print(f"[ppt] successfully saved unslopped presentation to: {PPTX_OUT}")
     except PermissionError:
-        fallback = ROOT / "TBD2_Final_Project_Presentation_unslopped.pptx"
+        fallback = ROOT / "TBD2_Final_Project_Presentation_unslopped_new.pptx"
         prs.save(str(fallback))
         print(f"[warning] {PPTX_OUT.name} is currently open in PowerPoint (exclusive write lock).")
-        print(f"[ppt] saved presentation to fallback: {fallback}")
+        print(f"[ppt] saved updated presentation to fallback: {fallback}")
 
 
 if __name__ == "__main__":

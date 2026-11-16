@@ -102,13 +102,18 @@ class TestPresentationArtifactIntegrity(unittest.TestCase):
     def test_presentation_no_deprecated_figures(self):
         gen_script = Path("generate_presentation.py").read_text(encoding="utf-8")
         # Check that none of the outdated figures or threshold numbers appear
-        deprecated_tokens = ["0.138", "38.2%", "0.00121", "p = 0.0003"]
+        deprecated_tokens = ["0.138", "38.2%", "0.00121", "p = 0.0003", "25°–50°N", "95°–65°W"]
         for token in deprecated_tokens:
             self.assertNotIn(token, gen_script, f"Deprecated token '{token}' found in generate_presentation.py")
 
+        # Verify correct study bounding box appears
+        self.assertIn("34°–52°N, 100°–60°W", gen_script)
+
     def test_presentation_file_dimensions_and_slide_count(self):
         import pptx
-        pptx_path = Path("TBD2_Final_Project_Presentation_unslopped.pptx")
+        pptx_path = Path("TBD2_Final_Project_Presentation_unslopped_new.pptx")
+        if not pptx_path.exists():
+            pptx_path = Path("TBD2_Final_Project_Presentation_unslopped.pptx")
         self.assertTrue(pptx_path.exists(), "Presentation PPTX missing")
         prs = pptx.Presentation(str(pptx_path))
         self.assertEqual(len(prs.slides), 22, "Must contain exactly 22 slides")
