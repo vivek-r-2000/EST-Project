@@ -404,8 +404,8 @@ def slide_01(prs):
     # 3 Summary Cards at Bottom
     cards = [
         ("RQ1: Tree Response Lags", "Tree species ran on distinct clocks, lagging behind climate by 750 to 2,500 years.", COLOR_BLUE),
-        ("RQ2: Novel Ancient Forests", "Unusual extinct tree mixtures peaked at 79.0% during rapid warming and dropped to 8.0% by 500 BP.", COLOR_VERMILION),
-        ("RQ3: Migration Deficit", "Past trees moved at only 117–277 m/yr, falling 9.3× slower than modern warming needs.", COLOR_GREEN)
+        ("RQ2: Novel Communities", "No-analogue forest communities peaked at 79.0% during rapid warming and dropped to 8.0% by 500 BP.", COLOR_VERMILION),
+        ("RQ3: Migration Deficit", "Past tree migration (median 170 m/yr) was 9.3× slower than modern warming velocity needs.", COLOR_GREEN)
     ]
     for idx, (title, text, col) in enumerate(cards):
         c = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8 + idx * 3.98), Inches(4.0), Inches(3.75), Inches(1.5))
@@ -448,7 +448,7 @@ def slide_01(prs):
     set_clean_notes(slide, 1, "Title Slide", "1 min 00s", "01:00",
         "This project looks at how North American forests responded to 15,000 years of postglacial climate warming. "
         "By combining fossil pollen from 69 lake sediment cores in the Neotoma Database with independent supercomputer climate runs from TraCE-21ka, "
-        "we answer three main questions: how many centuries different tree species lagged behind warming, why extinct novel forest types appeared, "
+        "we answer three main questions: how many centuries different tree species lagged behind warming, why no-analogue forest communities appeared, "
         "and how fast tree populations physically moved across the map compared to modern climate change.",
         "We start with why studying ancient forests matters on slide 2.",
         "Question: What is the geographic boundary of the study?\nAnswer: 34°N to 52°N and 100°W to 60°W, spanning eastern North America from the southern Appalachians up to southern Canada.")
@@ -472,7 +472,7 @@ def slide_02(prs):
         ], "Need for 2D Quantification", COLOR_VERMILION),
         ("Why This Matters for Today", [
             "Modern Warming Is Much Faster: Climate zones today are shifting at ~1,574 m/yr—nearly five times faster than ancient warming.",
-            "Severe Risk of Falling Behind: If ancient trees struggled at 332 m/yr, modern forests will lag behind even further.",
+            "Severe Velocity Gap: Because past trees migrated at median 170 m/yr behind 332 m/yr warming, modern forests face an even larger velocity deficit.",
             "Guiding Practical Conservation: Knowing natural speed limits helps us plan where to protect corridors and when to plant trees."
         ], "9.3x Velocity Gap", COLOR_GREEN)
     ]
@@ -497,7 +497,7 @@ def slide_02(prs):
 def slide_03(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     add_slide_header(slide, "1. Context & Motivation", "Three Core Research Questions",
-                     "Measuring how long trees lag, why extinct forest types formed, and how fast trees migrated in 2D.")
+                     "Measuring how long trees lag, why no-analogue forest communities formed, and how fast trees migrated in 2D.")
 
     rqs = [
         ("RQ1: Tree Response Delays", "How many centuries did different trees lag behind warming?", [
@@ -505,10 +505,10 @@ def slide_03(prs):
             "Speed Hierarchy: Test whether trees group into distinct speed tiers (fast pioneers, canopy trees, climax seeders).",
             "Direction of Change: Check whether each genus retreated under warming (cold-loving) or expanded (warm-loving)."
         ], COLOR_BLUE, "750–2,500 yr Delays"),
-        ("RQ2: Extinct Novel Forests", "Why did unusual forest mixtures emerge with no modern counterparts?", [
+        ("RQ2: Novel No-Analogue Forests", "Why did unusual forest mixtures emerge with no modern counterparts?", [
             "Measuring Novelty: Use pollen dissimilarity scores against 611 modern forests to identify unique ancient mixtures.",
-            "Tracking Dissolution: Test if novel forests peaked during rapid warming and dissolved completely before modern times.",
-            "Isolating Drivers: Break down total novelty scores to see which specific trees created these extinct mixtures."
+            "Tracking Dissolution: Test if novel communities peaked during rapid warming and declined toward pre-colonial baselines before modern times.",
+            "Isolating Drivers: Break down total dissimilarity scores to see which specific tree genera drove these novel communities."
         ], COLOR_VERMILION, "79.0% Novelty Peak"),
         ("RQ3: 2D Migration Velocity", "Did postglacial tree migration keep pace with climate speed?", [
             "2D Arrival Maps: Fit 2D arrival surfaces on an equal-area map to track true travel directions and ground speeds.",
@@ -579,7 +579,7 @@ def slide_03(prs):
     set_clean_notes(slide, 3, "Research Questions", "1 min 15s", "03:30",
         "Slide 3 outlines our three research questions. "
         "First, RQ1 asks: How many centuries did different trees lag behind warming, and did they expand or retreat? "
-        "Second, RQ2 examines novel extinct forests: When did unusual mixtures of trees appear, and what species caused them? "
+        "Second, RQ2 examines novel no-analogue forests: When did unusual mixtures of trees appear, and what species caused them? "
         "Third, RQ3 measures real physical speed: When trees traveled across a 2D map, how fast did they move compared to shifting climate zones? "
         "These questions directly test whether forests can naturally keep pace with warming.",
         "Slide 4 introduces our lake sediment dataset.",
@@ -617,14 +617,14 @@ def slide_04(prs):
 def slide_05(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     add_slide_header(slide, "2. Data & Study Corridor", "Independent Climate Data: NCAR TraCE-21ka Simulation",
-                     "Using a physics-based supercomputer model prevents the trap of using pollen to predict pollen.")
+                     "Using a physics-based supercomputer model avoids circular reasoning when testing tree responses.")
 
     cards = [
         ("Avoiding Circular Logic", [
-            "The Common Trap: Many older studies guessed temperatures from pollen, then used that temperature to explain tree movement.",
+            "Pollen-Climate Circularity: Reconstructing temperatures from pollen and then using that temperature to explain tree movement creates circular logic.",
             "Physics-Based Model: TraCE-21ka is a global ocean-atmosphere climate model run by NCAR, driven by Earth's orbit, greenhouse gases, and ice melt.",
             "Truly Independent: Vegetation changes are tested against an independent physical climate model, not an estimate made from pollen."
-        ], "Zero Circular Reasoning", COLOR_BLUE),
+        ], "Independent Climate Model", COLOR_BLUE),
         ("Climate Variables Tracked", [
             "Surface Temperature: Tracked in °C at each of our 69 lake locations across every 500-year time slice.",
             "Annual Rainfall: Measured precipitation (mm/day) to check moisture changes alongside temperature.",
@@ -644,8 +644,8 @@ def slide_05(prs):
                       "TraCE-21ka gives us independent temperature and rainfall time series, keeping our climate data cleanly separated from our pollen data.")
 
     set_clean_notes(slide, 5, "TraCE-21ka Paleoclimate", "1 min 15s", "06:00",
-        "Slide 5 outlines our climate dataset. A common flaw in older papers is circular logic: using fossil pollen to reconstruct temperature, and then using that temperature to explain pollen changes. "
-        "To avoid that trap, we pulled temperature and rainfall from TraCE-21ka, an independent climate simulation run on NCAR supercomputers. "
+        "Slide 5 outlines our climate dataset. A common methodological issue in older papers is circular logic: using fossil pollen to reconstruct temperature, and then using that temperature to explain pollen changes. "
+        "To avoid this circularity, we pulled temperature and rainfall from TraCE-21ka, an independent climate simulation run on NCAR supercomputers. "
         "TraCE models orbital cycles, greenhouse gases, and ice-sheet melting purely from physics principles. "
         "Importantly, TraCE gives us our regional temperature gradient—0.0121 degrees Celsius per kilometer (~1.2°C per 100 km)—which is the number we need to calculate how fast climate zones moved.",
         "Slide 6 covers the biological and dating corrections we applied to raw pollen counts.",
@@ -670,7 +670,7 @@ def slide_06(prs):
         ], "Weed Artifacts Removed", COLOR_VERMILION),
         ("Standardizing Dates (LegacyAge 1.0)", [
             "Upgraded Carbon Dates: Replaced older uncalibrated core depths with modern Bayesian age models from Li et al. (2022).",
-            "Testing Date Uncertainty: Tested 50 randomized Monte Carlo date draws to ensure age measurement jitter didn't alter our conclusions.",
+            "Monte Carlo Uncertainty (N=50 Draws): Resampled depth-age bounds 50 times across all lakes to test whether dating uncertainty affects our lag results.",
             "Consistent Calendar Timeline: Standardized every lake core on a common calendar timeline across all 15,000 years."
         ], "Standardized Calendar Ages", COLOR_GREEN)
     ]
@@ -693,19 +693,19 @@ def slide_06(prs):
 
 def slide_07(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
-    add_slide_header(slide, "2. Data & Study Corridor", "Statistical Toolkit: Proving Our Findings Are Real",
-                     "Removing false trends, testing against 1,000 random climate series, and tracking trees in 2D.")
+    add_slide_header(slide, "2. Data & Study Corridor", "Statistical Toolkit: Ensuring Statistical Rigor",
+                     "Removing spurious trends, testing against 1,000 surrogate climate series, and tracking trees in 2D.")
 
     cards = [
         ("First-Differencing (Change vs Change)", [
-            "The False Correlation Trap: Because both temperature and hardwoods rose over 15,000 years, raw comparisons show high correlation by accident.",
+            "Non-Stationary Correlation: Because both temperature and hardwoods trended upward over 15,000 years, raw level comparisons can produce spurious correlations.",
             "Comparing Steps, Not Trends: First-differencing looks at bin-to-bin changes: does a jump in temperature lead to a jump in trees?",
             "Stationary Testing: Removes overall millennial trends to test real cause-and-effect response timing."
         ], "Bin-to-Bin Changes Tested", COLOR_BLUE),
         ("1,000 Surrogate Tests (Ebisuzaki)", [
             "Climate Memory Problem: Environmental time series have autocorrelation, which can make regular p-values appear falsely significant.",
             "1,000 Synthetic Tests: Created 1,000 randomized climate test series with identical frequency properties to test our lags against.",
-            "Strict Pass Rule: A lag is considered real only if its correlation beats 95% of random surrogate runs (p < 0.05)."
+            "Strict Significance Threshold: A lag is considered statistically robust only if its correlation exceeds 95% of phase-randomized surrogate runs (p < 0.05)."
         ], "Strict p < 0.05 Significance", COLOR_VERMILION),
         ("2D Equal-Area Migration", [
             "Beyond 1D North Assumptions: Replaced straight-north lines with 2D arrival surfaces on an equal-area map.",
@@ -718,11 +718,11 @@ def slide_07(prs):
         add_card_column(slide, 0.8 + idx * 3.98, 1.55, 3.75, 4.30, title, bullets, bottom_chip=chip, title_color=col)
 
     add_bottom_banner(slide, "Statistical Rigor",
-                      "Detrending removed false correlations, 1,000 surrogate runs confirmed statistical significance, and 2D mapping captured real landscape travel.")
+                      "First-differencing removed spurious trend correlations, 1,000 Ebisuzaki surrogate runs controlled for autocorrelation, and 2D mapping captured actual landscape travel.")
 
     set_clean_notes(slide, 7, "Statistical Methods", "1 min 15s", "08:30",
         "Slide 7 explains our statistical framework. "
-        "A common trap in past studies is correlating trending data: because both temperature and oak trees rose over 15,000 years, a basic regression gives a high correlation that is completely accidental. "
+        "A common challenge in past studies is correlating trending data: because both temperature and oak trees rose over 15,000 years, a basic regression gives a high correlation that is spurious. "
         "We eliminated this by first-differencing: looking at bin-to-bin changes instead of raw levels. "
         "Next, climate series have temporal memory. To make sure our correlations were real, we tested every lag against 1,000 randomized surrogate climate series. "
         "Finally, we moved from 1D latitude lines to 2D arrival surfaces to measure real travel speeds across the landscape.",
@@ -739,14 +739,14 @@ def slide_08(prs):
         "Big Warming Jump (+9.6°C): Regional average temperature rose from -1.1°C at 15,000 BP up to +8.5°C during the warm mid-Holocene.",
         "Rising Rainfall (+1.2 mm/day): Moisture increased by 60% from dry ice age conditions (2.0 mm/day) to wet Holocene conditions (3.2 mm/day).",
         "Fastest Warming Surge (+0.43°C/century): The most rapid warming burst hit at 14,500 BP during the Bølling-Allerød warm pulse.",
-        "Forest Turnover Matched Warming: Community turnover peaked right alongside the fastest warming, showing that temperature shocks directly forced forest changes."
+        "Forest Turnover Matched Warming: Community turnover peaked alongside fastest warming, showing that rapid temperature shifts accelerated forest reorganization."
     ]
 
     add_figure_slide_layout(slide, "fig2_climate_and_turnover.png", 1.38,
                             "Abrupt Climate Shifts & Forest Turnover", bullets,
                             "+9.6 °C Total Warming", "Peak Rate: 0.43 °C/century",
                             "Turnover Matched Warming",
-                            "Forest communities reorganized fastest during periods of rapid warming, proving that ancient climate shocks immediately shook up forest composition.",
+                            "Forest communities reorganized fastest during periods of rapid warming, demonstrating that ancient climate transitions strongly accelerated community turnover.",
                             COLOR_VERMILION)
 
     set_clean_notes(slide, 8, "Climate & Turnover", "1 min 15s", "09:45",
@@ -765,7 +765,7 @@ def slide_09(prs):
                      "Forests do not move as a single synchronized unit; tree genera lag by 750 to 2,500 years across three speed tiers.")
 
     bullets = [
-        "Statistically Significant (H = 30.54, p = 0.0023): Kruskal-Wallis testing proves that tree genera do not share the same response speed.",
+        "Statistically Significant (H = 30.54, p = 0.0023): Kruskal-Wallis testing demonstrates that tree genera do not share the same response speed.",
         "Fast Pioneers (<1,000 yr): Tamarack (Larix) reacted first, with a median lag of 750 years [0–2,500 yr CI].",
         "Canopy Hardwoods (1,000–2,000 yr): Major trees—Oak, Birch, Ash, Elm, and Maple—clustered around a 1,500-year delay.",
         "Heavy Climax Seeders (>2,000 yr): Beech and Hemlock took the longest, lagging temperature by 2,500 years [2,000–3,000 yr CI]."
@@ -781,10 +781,10 @@ def slide_09(prs):
     set_clean_notes(slide, 9, "RQ1 Response Lags", "1 min 15s", "11:00",
         "Here in Figure 3 Panel A, we answer Research Question 1. "
         "Each row is a different tree genus, the dots mark median lag in years, and the horizontal bars show 95% confidence intervals. "
-        "The Kruskal-Wallis test gives H = 30.54 and p = 0.0023, confirming that different trees move on completely different timelines. "
+        "The Kruskal-Wallis test gives H = 30.54 and p = 0.0023, demonstrating that different trees move on distinct timelines. "
         "We see three clear groups: fast pioneers like Tamarack take about 750 years; canopy hardwoods like Oak, Maple, and Ash cluster at 1,500 years; and slow climax trees like Beech and Hemlock take 2,500 years. "
         "This shows that biomes don't migrate as a single synchronized block—each tree genus follows its own speed clock.",
-        "Slide 10 examines whether these lags represented population expansion or collapse.",
+        "Slide 10 examines whether these lags represented population expansion or retreat.",
         "Question: Why does Larix have a wider confidence interval?\nAnswer: Larix was restricted to northern sites near the ice margin, resulting in a smaller sample size (n=10) than widespread oaks (n=67).")
 
 
@@ -810,7 +810,7 @@ def slide_10(prs):
     set_clean_notes(slide, 10, "RQ1 Response Polarity", "1 min 15s", "12:15",
         "Slide 10 looks at the second half of Figure 3: which way did each tree react? "
         "Blue bars mean the tree retreated as it got warmer, and orange bars mean it expanded. "
-        "Look at Spruce: 95% of lakes show a negative correlation, with 78% passing our strict surrogate tests. Warming caused cold-adapted spruce to collapse across the region. "
+        "Look at Spruce: 95% of lakes show a negative correlation, with 78% passing our strict surrogate tests. Warming caused cold-adapted spruce to retreat across the region. "
         "On the flip side, Oak was 79% positive, expanding northward to take over newly opened ground. "
         "But even for oaks that benefited from warming, they still lagged 1,500 years behind temperature, showing how slowly forests reach equilibrium.",
         "Next, slide 11 explores Research Question 2: the emergence of novel ecosystems during this transition.",
@@ -820,7 +820,7 @@ def slide_10(prs):
 def slide_11(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     add_slide_header(slide, "3. Results: RQ2 (No-Analogue Forests)", "RQ2: Novel Communities Peaked at 79% and Dropped to 8% by 500 BP",
-                     "Extinct mixtures of trees peaked during the fastest deglacial warming and collapsed to near-modern levels before colonial disturbance.")
+                     "No-analogue forest communities peaked during rapid deglacial warming and declined to near-modern levels before colonial disturbance.")
 
     bullets = [
         "Identifying Novel Forests: Any fossil pollen sample with a dissimilarity score above 0.1060 SCD (5th percentile of 611 modern surface forests) is classified as novel.",
@@ -849,7 +849,7 @@ def slide_11(prs):
 def slide_12(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     add_slide_header(slide, "3. Results: RQ2 (No-Analogue Forests)", "RQ2: What Made These Ancient Forests So Strange?",
-                     "Breaking down dissimilarity scores reveals which tree genera drove these extinct ecological combinations.")
+                     "Breaking down dissimilarity scores reveals which tree genera drove these no-analogue community combinations.")
 
     bullets = [
         "Decomposing Dissimilarity: Because Squared Chord Distance is additive, we calculate each genus's exact contribution to community novelty.",
@@ -881,7 +881,7 @@ def slide_13(prs):
                      "Replacing straight-north assumptions with planar arrival maps and real travel directions.")
 
     bullets = [
-        "Strict Significance Gating: Tested all 12 genera on 2D arrival surfaces Age(x, y), strictly requiring p <= 0.05 to ensure real directional travel.",
+        "Strict Significance Gating: Tested all 12 genera on 2D arrival surfaces Age(x, y), requiring planar regression p <= 0.05 to identify coherent directional migration.",
         "5 Validated Migrants: Hickory, Alder, Beech, Tamarack, and Hemlock showed clear, coherent regional migration fronts.",
         "Staying Inside the Data: Arrival contours are masked strictly to the lake network boundary, preventing artificial guesses outside our sites.",
         "Directional Travel Vectors: Black arrows show how trees actually traveled around river valleys, the Great Lakes, and the Appalachians."
@@ -898,7 +898,7 @@ def slide_13(prs):
         "Figure 5 brings us to Research Question 3. "
         "Instead of assuming trees just marched straight north, we fitted 2D planar arrival surfaces across eastern North America. "
         "We ran a strict statistical test (F-test, p <= 0.05) and found that five tree genera had clear, organized migration waves: Hickory, Alder, Beech, Tamarack, and Hemlock. "
-        "The remaining seven taxa showed scattered local pockets rather than a single broad wave. "
+        "The remaining seven taxa showed localized spread, multiple refugial expansions, or already-widespread distributions (p > 0.05) rather than a single broad continental wave. "
         "The colored contours show arrival times from 12,000 years ago in dark blue to 4,000 years ago in yellow, and the black arrows show the actual direction trees traveled.",
         "Slide 14 details the specific travel routes and speeds of these five trees.",
         "Question: Why are isochrones clipped to convex hulls?\nAnswer: To prevent mathematical extrapolation into regions where a tree was never recorded, ensuring map integrity.")
@@ -930,7 +930,7 @@ def slide_14(prs):
         "Hickory moved East-North-East at 65 degrees along the fertile Ohio and Mississippi river valleys at 277 meters per year. "
         "Alder traveled West-North-West at 308 degrees around the Great Lakes at 265 meters per year. "
         "Beech and Hemlock moved at 170 and 117 meters per year along the Appalachian mountain chain. "
-        "This proves that 1D north-only models completely miss the real geography of tree migration.",
+        "This demonstrates that 1D north-only models overlook the real geographic corridors of tree migration.",
         "Slide 15 compares these speeds directly to climate change.",
         "Question: Why did Hickory move East-North-East?\nA: Glacial refugia for hickory were concentrated in the lower Mississippi basin; postglacial warming opened river corridors extending toward the Atlantic coast.")
 
@@ -941,10 +941,10 @@ def slide_15(prs):
                      "Past tree migration hit a biological ceiling below 300 m/yr—falling nearly an order of magnitude behind today's warming.")
 
     bullets = [
-        "A Hard Biological Speed Limit (117–277 m/yr): Across all validated trees, real population speeds topped out at 296 m/yr (Hickory max).",
-        "Slower Than Ancient Warming: Every single tree moved slower than natural deglacial climate velocity (332 m/yr, blue dashed line).",
+        "Empirical Migration Ceilings (117–277 m/yr): Across all 5 validated trees, population migration medians ranged from 117 to 277 m/yr (Hickory local max 296 m/yr).",
+        "Slower Than Deglacial Warming: All five validated trees migrated slower than 95th percentile deglacial climate velocity (332 m/yr, blue dashed line).",
         "Modern Warming Is Much Faster: 21st-century warming requires trees to track climate at 1,574 m/yr (orange dashed line).",
-        "The 9.3x Tracking Gap: Median past tree migration (170 m/yr) is 9.3 times slower than what is needed to keep pace with modern warming."
+        "The 9.3x Tracking Gap: Median past tree migration (170 m/yr) is 9.3 times slower than modern warming velocity (1,574 m/yr for 1.9°C/century)."
     ]
 
     add_figure_slide_layout(slide, "fig6_velocity_deficit.png", 2.04,
@@ -958,9 +958,9 @@ def slide_15(prs):
         "Figure 6 on slide 15 is the core punchline of our entire project. "
         "The horizontal axis shows speed in meters per year on a log scale. The green markers show our 2D tree speeds and their ranges. "
         "Notice two critical reference lines: "
-        "First, the blue dashed line at 332 meters per year is how fast climate zones moved during ancient deglaciation. Every single tree is to the left of that line—trees were always slower than climate. "
+        "First, the blue dashed line at 332 meters per year is how fast climate zones moved during ancient deglaciation. All five validated tree genera migrated slower than past 95th percentile climate velocity. "
         "Second, look at the orange dashed line at 1,574 meters per year: that's how fast climate zones are shifting today under 1.9°C of warming per century. "
-        "Median tree migration was 170 meters per year. That is a 9.3-fold speed deficit. Natural seed dispersal simply cannot keep up with modern warming on its own.",
+        "Median tree migration was 170 meters per year. That is a 9.3-fold speed deficit. Natural unassisted seed dispersal faces an estimated 9.3-fold deficit relative to 21st-century warming velocity.",
         "Slide 16 presents sensitivity checks on our models to ensure these results are solid.",
         "Question: Why did earlier mid-project models cross the 332 m/yr line?\nAnswer: Mid-project 1D models inverted linear regression slopes with wide standard errors, creating mathematical CI blowups that falsely exceeded 500 m/yr.")
 
@@ -974,12 +974,12 @@ def slide_16(prs):
         ("Testing Carbon Dating Jitter (N=50 Draws)", [
             "Random Date Draws: Drew 50 random age-depth realizations from LegacyAge 1.0 Bayesian chronologies across all 69 lakes.",
             "Unchanging Lags: The median response lag across all trees stayed locked at exactly 1,500 years in every single run.",
-            "Takeaway: Radiocarbon calibration uncertainty does not change our core conclusions."
+            "Takeaway: Radiocarbon calibration uncertainty does not alter the observed lag hierarchy."
         ], "Median Lag = 1,500 yr Locked", COLOR_BLUE),
         ("Finer 250-Year Time Bins", [
             "Halving the Time Step: Re-ran our entire pipeline using finer 250-year slices (66 lakes, 3,365 time levels).",
             "Same Speed Order: Found the identical speed hierarchy—Tamarack fastest, common hardwoods in the middle, Beech and Hemlock slowest.",
-            "Takeaway: Using 500-year bins did not blur or distort tree response patterns."
+            "Takeaway: Using 500-year bins preserved the same pioneer-to-climax sequence."
         ], "Same Tree Order Verified", COLOR_VERMILION),
         ("Surrogate Test Pass Rates", [
             "Synthetic Climate Controls: Tested our findings against 1,000 synthetic climate runs to weed out random chance.",
@@ -1016,7 +1016,7 @@ def slide_17(prs):
             "Limited Seed Travel: Most heavy nuts fall within 30 meters of the parent tree unless carried by animals."
         ], "Natural Seed Limit <300 m/yr", COLOR_BLUE),
         ("Building Soil Takes Centuries", [
-            "Bare Glacial Ground: Melting ice sheets left behind raw gravel and crushed stone with zero organic matter or nitrogen.",
+            "Bare Glacial Ground: Melting ice sheets left behind raw gravel and crushed mineral subsoil with minimal initial organic matter or nitrogen.",
             "Decades of Succession: Building rich forest topsoil requires centuries of lichen weathering and nitrogen-fixing plants like Alder.",
             "Climax Trees Need Soil: Demanding hardwoods like Beech and Maple cannot establish until thick humus and fungal networks develop."
         ], "Centuries to Build Forest Soil", COLOR_VERMILION),
@@ -1048,9 +1048,9 @@ def slide_18(prs):
                      "Translating 15,000 years of forest history into practical, real-world conservation strategies.")
 
     cards = [
-        ("Natural Dispersal Will Fall Behind", [
+        ("Unassisted Dispersal Faces Large Deficits", [
             "Modern Speed Gap: Today's climate warming (1,574 m/yr) is 9.3 times faster than ancient tree migration (170 m/yr).",
-            "Trees Lagging Behind: Left on their own, trees cannot keep up with shifting temperatures, leading to severe dieback along their southern borders.",
+            "Trees Lagging Behind: Left unassisted, natural migration is projected to lag behind warming temperatures, increasing vulnerability along southern range margins.",
             "Out-of-Sync Ecosystems: Forests will spend decades or centuries out of equilibrium with regional climate."
         ], "Natural Migration Too Slow", COLOR_VERMILION),
         ("Modern Human Obstacles", [
@@ -1058,9 +1058,9 @@ def slide_18(prs):
             "Highways and Sprawl: Eastern North America is now chopped up by highways, cities, suburban sprawl, and huge farm fields.",
             "Blocked Routes: The river valleys that Hickory and Oak once used to move north are now fragmented by human development."
         ], "Migration Routes Blocked", COLOR_ORANGE),
-        ("Assisted Migration Needed", [
-            "Active Forestry: We cannot simply protect land and assume trees will naturally disperse in time.",
-            "Planting Seeds North: Foresters need to actively plant southern tree populations 100 to 300 km north of their current ranges.",
+        ("Assisted Migration Options", [
+            "Targeted Forestry: Foresters and land managers should evaluate assisted population migration, moving seedlots from southern populations northward within adapted seed zones.",
+            "Seed Redistribution: Planting southern provenances 100 to 300 km north within current species ranges helps build climate resilience.",
             "Focus on Slow Movers: Priority should go to slow-dispersing climax trees like Beech, Sugar Maple, and Hemlock."
         ], "Assisted Planting Required", COLOR_GREEN)
     ]
@@ -1073,10 +1073,10 @@ def slide_18(prs):
 
     set_clean_notes(slide, 18, "Conservation Policy", "1 min 00s", "22:00",
         "Slide 18 connects our historical data to today's climate challenges. We see two huge takeaways: "
-        "First, natural seed dispersal won't cut it. Ancient trees maxed out below 300 meters per year, but climate zones today are moving at over 1,500 meters per year. "
+        "First, natural unassisted seed dispersal faces an estimated 9.3-fold deficit relative to modern climate velocity. Ancient trees maxed out below 300 meters per year, but climate zones today are moving at over 1,500 meters per year. "
         "Second, ancient trees moved across an unbroken continent. Today, the landscape is cut up by highways, cities, and farms. "
         "That means modern trees face a faster warming rate across a landscape with more obstacles. "
-        "The clear conclusion is that passive conservation isn't enough—we need proactive assisted migration, planting resilient seed sources further north to help forests keep pace.",
+        "The clear conclusion is that passive conservation alone may leave forests lagging behind—foresters should evaluate proactive assisted population migration to help forests keep pace.",
         "Slide 19 outlines the limitations of our analysis.",
         "Question: Are there ecological risks to assisted migration?\nAnswer: Yes, risks include introducing novel pathogens or maladapted genetics; planting should focus on assisted population migration within existing ranges first.")
 
@@ -1089,7 +1089,7 @@ def slide_19(prs):
     cards = [
         ("500-Year Time Bins", [
             "Long Time Slices: 500-year bins smooth out short-term climate events, capturing millennial trends rather than decade-scale droughts.",
-            "Missing Extreme Years: Cannot tell if single severe drought years triggered sudden die-off pulses.",
+            "Conservative Baseline: Averaging over 500-year bins smooths short-term decadal pulses, making our past 332 m/yr benchmark a conservative comparison against modern rates.",
             "Next Step: Annual laminated lake mud cores (varves) and cave stalagmite records to look at year-by-year patterns."
         ], "500-Year Window Resolution", COLOR_BLUE),
         ("2D Planar Surfaces", [
@@ -1112,7 +1112,7 @@ def slide_19(prs):
 
     set_clean_notes(slide, 19, "Limitations & Horizons", "1 min 00s", "23:00",
         "Slide 19 outlines our limitations. "
-        "First, our 500-year time bins capture long-term trends, but they smooth over short-term events like decade-long droughts. "
+        "First, our 500-year time bins capture long-term trends, but they smooth over short-term events like decade-long droughts, making our 332 m/yr deglacial climate velocity a conservative lower bound. "
         "Second, our 2D planar arrival surfaces capture broad regional waves, but they smooth out microclimates in steep mountain gorges. "
         "Third, fossil pollen only identifies trees to the genus level—we can identify Oak, but we can't tell Red Oak from White Oak. "
         "Future work using ancient DNA from lake sediments will help resolve individual tree species.",
@@ -1131,15 +1131,15 @@ def slide_20(prs):
             "Three Speed Tiers: Fast pioneers (Tamarack) react in 750 yr; canopy hardwoods in 1,500 yr; climax seeders in 2,500 yr.",
             "Opposite Reactions: Warming triggered major dieback in cold-loving Spruce (95% retreat) alongside rapid Oak expansion (79% positive)."
         ], COLOR_BLUE, "Non-Unified Biomes"),
-        ("2. Novel Forests Were a Temporary Phase (RQ2)", [
-            "Peak at 79%: Extinct no-analogue tree mixtures peaked at 79.0% during rapid deglacial warming (14,500 BP).",
+        ("2. No-Analogue Forests Were a Transient Phase (RQ2)", [
+            "Peak at 79%: No-analogue tree community combinations peaked at 79.0% during rapid deglacial warming (14,500 BP).",
             "Boreal-Hardwood Recombination: Driven by abnormal co-occurrences of Oak, Birch, Alder, Poplar, and Spruce under extreme seasonality.",
             "Pre-Colonial Baseline: Novel forest prevalence declined to just 8.0% by 500 BP once modern climate seasonality stabilized."
-        ], COLOR_VERMILION, "Temporary Disequilibrium"),
+        ], COLOR_VERMILION, "Transient Disequilibrium"),
         ("3. The 9.3x Modern Velocity Tracking Deficit (RQ3)", [
             "Hard Speed Limit: Real 2D tree population speeds hit an empirical ceiling between 117 and 277 m/yr (Hickory max 296 m/yr).",
             "Slower Than Climate: Past trees moved slower than ancient warming (332 m/yr), and trail modern warming (1,574 m/yr) by 9.3 times.",
-            "Active Action Needed: Passive natural dispersal will fail under 21st-century warming; proactive assisted migration is required."
+            "Active Management Implication: Because unassisted natural dispersal lags modern warming velocity by 9.3×, assisted migration and ecological corridors should be planned."
         ], COLOR_GREEN, "Assisted Planting Mandate")
     ]
 
@@ -1204,9 +1204,9 @@ def slide_20(prs):
     set_clean_notes(slide, 20, "Conclusions", "1 min 00s", "24:00",
         "To wrap up our presentation, here are our three core conclusions: "
         "First, trees don't migrate as neat, synchronized biomes—different species move on individual clocks ranging from 750 to 2,500 years. "
-        "Second, novel extinct forest mixtures peaked at 79% during rapid warming and fell to 8% under stable pre-colonial conditions. "
+        "Second, no-analogue forest communities peaked at 79.0% during rapid warming and fell to 8.0% under stable pre-colonial conditions. "
         "Third, past tree migration hit a hard ceiling below 300 meters per year, leaving a 9.3-fold speed deficit compared to modern warming. "
-        "Natural seed dispersal won't keep pace on its own—we need active assisted migration to safeguard our forests. "
+        "Natural unassisted seed dispersal cannot bridge this 9.3-fold gap alone—assisted migration and ecological corridors should be planned to safeguard our forests. "
         "Thank you for your time, and we'd be glad to take any questions!",
         "We also have two backup slides prepared covering 1D vs 2D mathematical differences and statistical parameters.",
         "Question: What is the single primary takeaway for foresters?\nAnswer: Natural tree migration cannot outrun modern climate velocity; assisted migration of southern seedlots must be planned now.")
